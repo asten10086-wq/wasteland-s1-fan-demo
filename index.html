@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>废土前季·第一季网页同人 Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <h1>废土前季·第一季网页同人 Demo</h1>
+      <p class="credit">同人 Demo，与网易无关 · 原创素材 · 非官方</p>
+    </header>
+
+    <div id="main">
+      <canvas id="game" width="800" height="520" tabindex="0"></canvas>
+
+      <aside id="panel">
+        <section class="box">
+          <h2>状态</h2>
+          <div id="status">
+            <div>时间：<span id="timeLabel">白天</span></div>
+            <div>生命：<span id="hpLabel">100</span></div>
+            <div>位置：<span id="posLabel">0, 0</span></div>
+          </div>
+        </section>
+
+        <section class="box">
+          <h2>背包</h2>
+          <ul id="inventory"></ul>
+        </section>
+
+        <section class="box">
+          <h2>建造 <kbd>B</kbd></h2>
+          <div id="buildMenu" class="menu hidden">
+            <button data-build="shelter" type="button">木屋庇护所<br /><small>木材×8 石材×4</small></button>
+            <button data-build="workbench" type="button">简易工作台<br /><small>木材×5 废料×3</small></button>
+            <button data-build="wall" type="button">木墙<br /><small>木材×3</small></button>
+            <p class="hint">再按 B 取消；点击地面放置</p>
+          </div>
+          <p id="buildHint" class="hint">按 B 打开建造菜单</p>
+        </section>
+
+        <section class="box">
+          <h2>制作 <kbd>C</kbd></h2>
+          <div id="craftMenu" class="menu hidden">
+            <button data-craft="bandage" type="button">简易绷带<br /><small>废料×2 → 回复 25 生命</small></button>
+            <button data-craft="torch" type="button">火把<br /><small>木材×2 废料×1 → 夜晚视野+</small></button>
+            <button data-craft="spear" type="button">木矛<br /><small>木材×4 石材×2 → 攻击+</small></button>
+            <p class="hint">需靠近工作台</p>
+          </div>
+          <p id="craftHint" class="hint">靠近工作台后按 C</p>
+        </section>
+
+        <section class="box">
+          <h2>操作</h2>
+          <ul class="controls">
+            <li><kbd>WASD</kbd> / 方向键 移动</li>
+            <li><kbd>E</kbd> 采集附近资源</li>
+            <li><kbd>B</kbd> 建造菜单</li>
+            <li><kbd>C</kbd> 制作菜单</li>
+            <li><kbd>空格</kbd> 攻击威胁</li>
+            <li><kbd>1</kbd> 使用绷带回血</li>
+            <li>鼠标点击 放置建筑</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <div id="toast"></div>
+    <footer>
+      <span>MVP 同人网页 Demo · 几何占位美术 · 请勿用于商业</span>
+    </footer>
+  </div>
+
+  <div id="startOverlay">
+    <div class="card">
+      <h2>废土前季·第一季网页同人 Demo</h2>
+      <p>生存 · 采集 · 建造 · 熬过夜晚</p>
+      <p class="credit">同人 Demo，与网易无关</p>
+      <button id="startBtn" type="button">开始生存</button>
+      <p class="tiny">WASD 移动 · E 采集 · B 建造 · C 制作 · 空格攻击</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
